@@ -6,9 +6,9 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Comment {
 
-    private String uid;
-    private String author;
-    private String text;
+    public String uid;
+    public String author;
+    public String text;
 
     public Comment() {
         // Default constructor required for calls to DataSnapshot.getValue(Comment.class)

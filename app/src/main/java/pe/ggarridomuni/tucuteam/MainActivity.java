@@ -2,21 +2,27 @@ package pe.ggarridomuni.tucuteam;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
+import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import pe.ggarridomuni.tucuteam.fragment.MyPostsFragment;
+import pe.ggarridomuni.tucuteam.fragment.MyTopPostsFragment;
+import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragment;
+
 public class MainActivity extends BaseActivity {
 
+    private static final String TAG = "MainActivity";
 
-    private ProgressBar progressBar;
-    private FirebaseAuth.AuthStateListener authListener;
-    private FirebaseAuth auth;
+    private FragmentPagerAdapter mPagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,22 +33,44 @@ public class MainActivity extends BaseActivity {
         toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
 
-        //get firebase auth instance
-        auth = FirebaseAuth.getInstance();
-
-
-        authListener = new FirebaseAuth.AuthStateListener() {
+        // Create the adapter that will return a fragment for each section
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new RecentPostsFragment(),
+                    new MyPostsFragment(),
+                    new MyTopPostsFragment(),
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.heading_recent),
+                    getString(R.string.heading_my_posts),
+                    getString(R.string.heading_my_top_posts)
+            };
             @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user == null) {
-                    // user auth state is changed - user is null
-                    // launch login activity
-                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                    finish();
-                }
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
             }
         };
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mPagerAdapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
+
+        // Button launches NewPostActivity
+        findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, NewPostActivity.class));
+            }
+        });
     }
 
     @Override
