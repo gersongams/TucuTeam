@@ -6,7 +6,7 @@
                                                  android:layout_height="match_parent"
                                                  android:fitsSystemWindows="true"
                                                  android:background="@drawable/background"
-                                                    tools:context="pe.ggarridomuni.tucuteam.SignupActivity">
+                                                 tools:context="pe.ggarridomuni.tucuteam.SignupActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
