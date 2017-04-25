@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "937465022082",
+    "firebase_url": "https://tucuteam.firebaseio.com",
+    "project_id": "tucuteam",
+    "storage_bucket": "tucuteam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937465022082:android:c59cdb304ced5d8b",
+        "android_client_info": {
+          "package_name": "pe.ggarridomuni.tucuteam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937465022082-o01ngn70tmq9p3o4gouusa204ti42u8p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkwdroFld6SjNyhV2aKRRHVY8snBA3oYM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">TucuTeam</string>
+
+    <string name="action_sign_in_short">Registrate</string>
+    <string name="email">Email</string>
+    <string name="minimum_password">Tu contraseña es muy corta, ingresa 6 caracteres como minimo</string>
+    <string name="auth_failed">Error de autenticación, comprueba tu correo electrónico y contraseña o regístrate</string>
+    <string name="change_email">Cambiar Email</string>
+    <string name="signup_title">Registro</string>
+    <string name="change_password">Cambiar Contraseña</string>
+    <string name="send_password_reset_email">Enviar email para reestablecer contraseña</string>
+    <string name="remove_user">Eliminar usuario</string>
+    <string name="new_pass">Nueva Contraseña</string>
+    <string name="title_activity_profile">Firebase</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="hint_email">Correo</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_name">Nombre Completo</string>
+    <string name="btn_login">INICIAR SESIÓN</string>
+    <string name="btn_link_to_register">¿No es un miembro? ¡Regístrese en TucuTeam ahora!</string>
+    <string name="btn_link_to_login">Ya te has registrado. Ingresa a la aplicación!</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="btn_forgot_password">¿Ha olvidad su contraseña?</string>
+    <string name="btn_reset_password">Reestablecer Contraseña</string>
+    <string name="btn_back"><![CDATA[<< Back]]></string>
+    <string name="hint_new_email">Nuevo Correo</string>
+    <string name="btn_change">Cambiar</string>
+    <string name="btn_send">Enviar</string>
+    <string name="btn_remove">Eliminar</string>
+    <string name="btn_sign_out">Salir</string>
+    <string name="lbl_forgot_password">¿Has olvidad tu contraseña?</string>
+    <string name="forgot_password_msg">Sólo necesitamos que su correo registrado para que le envíe instrucciones de restablecimiento de contraseña.</string>
+    <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_discover">Discover</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_contacts">ContactsActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="menu_login">Log in</string>
+    <string name="menu_logout">Log out</string>
+    <string name="login_label">Log In</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="send_text">Send</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec condimentum ante, quis mattis mi. Proin ut rhoncus libero, ac euismod neque. Ut suscipit, enim a facilisis consequat, orci lacus venenatis orci, at ultricies orci nulla sed ex. In condimentum viverra velit, eget feugiat libero imperdiet vel. Aenean pretium, lectus vitae bibendum bibendum, diam turpis convallis eros, quis tristique leo sapien at ipsum. Praesent eu odio id nulla lobortis auctor. Donec eget dolor eget nisl euismod commodo vel a lacus. Quisque ut justo vitae urna pharetra accumsan. Etiam dignissim neque iaculis mauris viverra, blandit rhoncus odio porttitor. Phasellus nibh arcu.</string>
+    <string name="title_sign_in">Welcome</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="heading_recent">Recent</string>
+    <string name="heading_my_posts">My Posts</string>
+    <string name="heading_my_top_posts">My Top Posts</string>
+
+</resources>
