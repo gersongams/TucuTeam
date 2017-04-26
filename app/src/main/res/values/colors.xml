@@ -19,6 +19,9 @@
     <color name="btn_logut_bg">#ff6861</color>
     <color name="BackgroundtWhiteColor">#ffffff</color>
 
+    <color name="backgroundTitlePost">#f7b573</color>
+    <color name="backgroundPost">#a8bef5</color>
+
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#727272</color>
     <color name="icons">#212121</color>
