@@ -174,7 +174,8 @@ public class SignupActivity extends AppCompatActivity {
         }
         return result;
     }
-
+    // Funcion para escribir Usuario en la base de datos con el id de usuario
+    // dentro de users
     //Funcion agregada WriteUser
     private void writeNewUser(String userId, String name, String email){
         User user = new User(name, email);
