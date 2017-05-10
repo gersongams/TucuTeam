@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#039BE5</color>
-    <color name="colorPrimaryDark">#0288D1</color>
-    <color name="colorAccent">#FFA000</color>
+    <color name="colorPrimary">#4aa8fa</color>
+    <color name="colorPrimaryDark">#438348</color>
+    <color name="colorAccent">#ffa200</color>
 
     <color name="bg_login">#26ae90</color>
     <color name="bg_register">#2e3237</color>
@@ -28,5 +28,5 @@
     <color name="divider">#B6B6B6</color>
 
     <color name="accent_color">#00BCD4</color>
-    <ccolor name="nice_yellow">#FFEB3B</ccolor>
+    <color name="nice_yellow">#FFEB3B</color>
 </resources>

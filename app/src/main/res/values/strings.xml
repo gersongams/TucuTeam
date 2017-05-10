@@ -37,6 +37,10 @@
     <string name="title_notifications">Notificaciones</string>
     <string name="title_activity_contacts">ContactsActivity</string>
 
+
+    <string name="hint_post_title">Titulo del post</string>
+    <string name="hint_post_write">Escriba el post</string>
+
     <string name="action_settings">Configuración</string>
     <string name="menu_login">Log in</string>
     <string name="menu_logout">Salir</string>

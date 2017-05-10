@@ -39,4 +39,20 @@ public class Post {
         return result;
     }
 
+    public String getUid(){
+        return uid;
+    }
+
+    public String getAuthor(){
+        return author;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public String getBody(){
+        return body;
+    }
+
 }

@@ -13,7 +13,7 @@
 
         <EditText
             android:id="@+id/field_title"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/backgroundTitlePost"
@@ -21,9 +21,11 @@
             android:gravity="left|top"
             android:padding="10dp"
             android:hint="Title"
+            style="@style/Base.V7.Widget.AppCompat.EditText"
             android:textColorHighlight="@color/primary_text"
             android:textColorHint="@color/primary_text"
             android:maxLines="1" />
+
 
         <EditText
             android:id="@+id/field_body"
