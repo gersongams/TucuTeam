@@ -86,7 +86,12 @@ public class MainActivity extends ProgressActivity {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
             return true;
-        } else {
+        }
+        else if(i == R.id.action_setting){
+            startActivity(new Intent(android.provider.Settings.ACTION_LOCALE_SETTINGS));
+            return true;
+        }
+        else {
             return super.onOptionsItemSelected(item);
         }
     }
