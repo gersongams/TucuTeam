@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,19 +16,29 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import pe.ggarridomuni.tucuteam.models.User;
 
 public class SignupActivity extends AppCompatActivity {
+    private DatabaseReference mDatabase;//agregado
+    private FirebaseAuth auth;
+
+    private static final String TAG="SignupActivity";
 
     private EditText inputEmail, inputPassword;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
-    private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();//agregado
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
@@ -97,6 +108,91 @@ public class SignupActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    //Funcion agregada
+
+    private void signUp(){
+        Log.d(TAG,"signUp");
+        if(!validateForm()){
+            return;
+        }
+
+        //showProgressDialog()
+                String email=inputEmail.getText().toString();
+                String password=inputPassword.getText().toString();
+
+                auth.createUserWithEmailAndPassword(email,password)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "createUser:oncomplete"+task.isSuccessful());
+                               // hideProgressDialog();
+
+                                if(task.isSuccessful()){
+                                    onAuthSuccess(task.getResult().getUser());
+                                }
+                                else{
+                                    Toast.makeText(SignupActivity.this,"Sign up Failed",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+    }
+
+//Funcion agregada
+    private void onAuthSuccess(FirebaseUser user){
+        String username = usernameFromEmail(user.getEmail());
+        writeNewUser(user.getUid(), username, user.getEmail());
+
+        startActivity(new Intent(SignupActivity.this,MainActivity.class));
+        finish();
+
+    }
+
+    //Funcion Agregada
+
+    private String usernameFromEmail(String email){
+        if(email.contains("@")){
+            return email.split("@")[0];
+        }
+        else{
+            return email;
+        }
+    }
+
+    //Funcion Agregada
+
+    private boolean validateForm(){
+        boolean result = true;
+        if(TextUtils.isEmpty(inputEmail.getText().toString())){
+            inputEmail.setError("Required");
+            result = false;
+        }
+        else{
+            inputEmail.setError(null);
+        }
+        return result;
+    }
+    // Funcion para escribir Usuario en la base de datos con el id de usuario
+    // dentro de users
+    //Funcion agregada WriteUser
+    private void writeNewUser(String userId, String name, String email){
+        User user = new User(name, email);
+        mDatabase.child("users").child(userId).setValue(user);
+
+
+    }
+
+// funciona agregada
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // Check auth on Activity start
+        if (auth.getCurrentUser() != null) {
+            onAuthSuccess(auth.getCurrentUser());
+        }
     }
 
     @Override

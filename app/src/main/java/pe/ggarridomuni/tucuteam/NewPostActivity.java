@@ -77,13 +77,15 @@ public class NewPostActivity extends BaseActivity {
 
         // [START single_value_read]
         final String userId = getUid();
+        // Agrega un listener en el usuario actual que nos permite postear y chequear si
+        // hay errores de autentificacion para mostrar en el post.
         mDatabase.child("users").child(userId).addListenerForSingleValueEvent(
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // Get user value
-                        User user = dataSnapshot.getValue(User.class);
-
+                        //User user = dataSnapshot.getValue(User.class);
+                        User user= new User("geckolml","test@test.com");
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
