@@ -26,9 +26,7 @@ public class NewPostActivity extends BaseActivity {
     private static final String TAG = "NewPostActivity";
     private static final String REQUIRED = "Required";
 
-    // [START declare_database_ref]
     private DatabaseReference mDatabase;
-    // [END declare_database_ref]
 
     private EditText mTitleField;
     private EditText mBodyField;
@@ -39,9 +37,7 @@ public class NewPostActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_post);
 
-        // [START initialize_database_ref]
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        // [END initialize_database_ref]
 
         mTitleField = (EditText) findViewById(R.id.field_title);
         mBodyField = (EditText) findViewById(R.id.field_body);
@@ -59,13 +55,13 @@ public class NewPostActivity extends BaseActivity {
         final String title = mTitleField.getText().toString();
         final String body = mBodyField.getText().toString();
 
-        // Title is required
+        // titulo obligatoro
         if (TextUtils.isEmpty(title)) {
             mTitleField.setError(REQUIRED);
             return;
         }
 
-        // Body is required
+        // texto obligatorio
         if (TextUtils.isEmpty(body)) {
             mBodyField.setError(REQUIRED);
             return;
@@ -75,7 +71,6 @@ public class NewPostActivity extends BaseActivity {
         setEditingEnabled(false);
         Toast.makeText(this, "Posting...", Toast.LENGTH_SHORT).show();
 
-        // [START single_value_read]
         final String userId = getUid();
         // Agrega un listener en el usuario actual que nos permite postear y chequear si
         // hay errores de autentificacion para mostrar en el post.
