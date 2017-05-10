@@ -55,6 +55,7 @@
     <string name="heading_recent">Reciente</string>
     <string name="heading_my_posts">Mis Posts</string>
     <string name="heading_my_top_posts">Mis Top Post</string>
+    <string name="heading_chat">Chat</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
