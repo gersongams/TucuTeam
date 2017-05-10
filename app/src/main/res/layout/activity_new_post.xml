@@ -13,31 +13,29 @@
 
         <EditText
             android:id="@+id/field_title"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/backgroundTitlePost"
             android:layout_margin="20dp"
-            android:gravity="left|top"
-            android:padding="10dp"
-            android:hint="Title"
-            style="@style/Base.V7.Widget.AppCompat.EditText"
             android:textColorHighlight="@color/primary_text"
             android:textColorHint="@color/primary_text"
-            android:maxLines="1" />
+            android:theme="@style/MyEditText"
+            android:gravity="left|top"
+            android:padding="10dp"
+            android:hint="Titulo" />
 
 
         <EditText
+            android:theme="@style/MyEditText"
             android:id="@+id/field_body"
             android:layout_width="match_parent"
             android:layout_weight="3"
             android:layout_height="wrap_content"
-            android:background="@color/backgroundPost"
             android:layout_below="@+id/field_title"
             android:layout_margin="20dp"
             android:gravity="left|top"
             android:padding="20px"
-            android:hint="Write your post..."
+            android:hint="Comparte tu idea ;) "
             android:textColorHighlight="@color/primary_text"
             android:textColorHint="@color/primary_text"
             android:inputType="textMultiLine"
@@ -45,6 +43,7 @@
             android:scrollHorizontally="false" />
 
         <android.support.design.widget.FloatingActionButton
+            android:theme="@style/MyEditText"
             android:id="@+id/fab_submit_post"
             android:layout_weight="0.5"
             android:layout_width="wrap_content"

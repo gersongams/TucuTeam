@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:padding="10dp">
+
+
     <TextView
         android:id="@+id/post_title"
         style="@style/TextAppearance.AppCompat.Medium"
@@ -13,7 +21,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textStyle="bold"
-        tools:text="My First Post" />
+        tools:text="Mi primer Post" />
 
     <TextView
         android:id="@+id/post_body"
@@ -22,4 +30,6 @@
         android:layout_marginTop="5dp"
         tools:text="@string/lorem" />
 
+
+    </LinearLayout>
 </LinearLayout>

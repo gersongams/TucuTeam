@@ -24,9 +24,8 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
     <!--Campo de texto-->
-    <style name="EditText" parent="AppTheme">
-        <!-- cursor y línea normal-->
-        <item name="colorControlNormal">@color/accent_color</item>
-        <!-- cursor y línea con foco-->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/divider</item>
+        <item name="colorControlActivated">@color/divider</item>
     </style>
 </resources>

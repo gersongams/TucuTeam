@@ -31,7 +31,7 @@
     <string name="lbl_forgot_password">¿Has olvidad tu contraseña?</string>
     <string name="forgot_password_msg">Sólo necesitamos que su correo registrado para que le envíe instrucciones de restablecimiento de contraseña.</string>
     <string name="title_activity_signup">SignupActivity</string>
-    <string name="title_activity_discover">Discover</string>
+    <string name="title_activity_discover">Descubre</string>
     <string name="title_home">Inicio</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notificaciones</string>
