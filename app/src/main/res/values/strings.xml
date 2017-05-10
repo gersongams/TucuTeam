@@ -44,6 +44,7 @@
     <string name="action_settings">Configuración</string>
     <string name="menu_login">Log in</string>
     <string name="menu_logout">Salir</string>
+    <string name="menu_setting">Configuracion</string>
     <string name="login_label">Log In</string>
     <string name="email_label">Email</string>
     <string name="password_label">Contraseña</string>
