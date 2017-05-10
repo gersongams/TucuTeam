@@ -22,21 +22,21 @@ import com.google.firebase.database.Transaction;
 import pe.ggarridomuni.tucuteam.PostDetailActivity;
 import pe.ggarridomuni.tucuteam.R;
 import pe.ggarridomuni.tucuteam.models.Post;
-import pe.ggarridomuni.tucuteam.viewholder.PostViewHolder;
+import pe.ggarridomuni.tucuteam.Views.PostViews;
 
-public abstract class PostListFragment extends Fragment {
+public abstract class ListaPostFragment extends Fragment {
 
-    private static final String TAG = "PostListFragment";
+    private static final String TAG = "ListaPostFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
     // [END define_database_reference]
 
-    private FirebaseRecyclerAdapter<Post, PostViewHolder> mAdapter;
+    private FirebaseRecyclerAdapter<Post, PostViews> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
 
-    public PostListFragment() {}
+    public ListaPostFragment() {}
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
@@ -66,10 +66,10 @@ public abstract class PostListFragment extends Fragment {
 
         // Set up FirebaseRecyclerAdapter with the Query
         Query postsQuery = getQuery(mDatabase);
-        mAdapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(Post.class, R.layout.item_post,
-                PostViewHolder.class, postsQuery) {
+        mAdapter = new FirebaseRecyclerAdapter<Post, PostViews>(Post.class, R.layout.item_post,
+                PostViews.class, postsQuery) {
             @Override
-            protected void populateViewHolder(final PostViewHolder viewHolder, final Post model, final int position) {
+            protected void populateViewHolder(final PostViews viewHolder, final Post model, final int position) {
                 final DatabaseReference postRef = getRef(position);
 
                 // Set click listener for the whole post view

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import pe.ggarridomuni.tucuteam.models.User;
+import pe.ggarridomuni.tucuteam.models.Usuarios;
 
 public class SignupActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;//agregado
@@ -149,8 +148,8 @@ public class SignupActivity extends AppCompatActivity {
     // dentro de users
     //Funcion agregada WriteUser
     private void writeNewUser(String userId, String name, String email){
-        User user = new User(name, email);
-        mDatabase.child("users").child(userId).setValue(user);
+        Usuarios usuarios = new Usuarios(name, email);
+        mDatabase.child("users").child(userId).setValue(usuarios);
     }
 
     // funciona agregada

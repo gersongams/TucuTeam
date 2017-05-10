@@ -41,7 +41,7 @@
             android:layout_weight="0.8"
             android:layout_height="wrap_content"
             android:maxLines="1"
-            android:hint="Write a comment..."/>
+            android:hint="Write a comentarios..."/>
 
         <Button
             android:id="@+id/button_post_comment"

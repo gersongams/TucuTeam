@@ -23,11 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import pe.ggarridomuni.tucuteam.models.Comment;
+import pe.ggarridomuni.tucuteam.models.Comentarios;
 import pe.ggarridomuni.tucuteam.models.Post;
-import pe.ggarridomuni.tucuteam.models.User;
+import pe.ggarridomuni.tucuteam.models.Usuarios;
 
-public class PostDetailActivity extends BaseActivity implements View.OnClickListener {
+public class PostDetailActivity extends ProgressActivity implements View.OnClickListener {
 
     private static final String TAG = "PostDetailActivity";
 
@@ -142,16 +142,16 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get user information
-                        User user = dataSnapshot.getValue(User.class);
-                        String authorName = user.username;
+                        // Get usuarios information
+                        Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
+                        String authorName = usuarios.username;
 
-                        // Create new comment object
+                        // Create new comentarios object
                         String commentText = mCommentField.getText().toString();
-                        Comment comment = new Comment(uid, authorName, commentText);
+                        Comentarios comentarios = new Comentarios(uid, authorName, commentText);
 
-                        // Push the comment, it will appear in the list
-                        mCommentsReference.push().setValue(comment);
+                        // Push the comentarios, it will appear in the list
+                        mCommentsReference.push().setValue(comentarios);
 
                         // Clear the field
                         mCommentField.setText(null);
@@ -184,7 +184,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
         private ChildEventListener mChildEventListener;
 
         private List<String> mCommentIds = new ArrayList<>();
-        private List<Comment> mComments = new ArrayList<>();
+        private List<Comentarios> mComentarioses = new ArrayList<>();
 
         public CommentAdapter(final Context context, DatabaseReference ref) {
             mContext = context;
@@ -197,14 +197,14 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                 public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
                     Log.d(TAG, "onChildAdded:" + dataSnapshot.getKey());
 
-                    // A new comment has been added, add it to the displayed list
-                    Comment comment = dataSnapshot.getValue(Comment.class);
+                    // A new comentarios has been added, add it to the displayed list
+                    Comentarios comentarios = dataSnapshot.getValue(Comentarios.class);
 
                     // [START_EXCLUDE]
                     // Update RecyclerView
                     mCommentIds.add(dataSnapshot.getKey());
-                    mComments.add(comment);
-                    notifyItemInserted(mComments.size() - 1);
+                    mComentarioses.add(comentarios);
+                    notifyItemInserted(mComentarioses.size() - 1);
                     // [END_EXCLUDE]
                 }
 
@@ -214,14 +214,14 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so displayed the changed comment.
-                    Comment newComment = dataSnapshot.getValue(Comment.class);
+                    Comentarios newComentarios = dataSnapshot.getValue(Comentarios.class);
                     String commentKey = dataSnapshot.getKey();
 
                     // [START_EXCLUDE]
                     int commentIndex = mCommentIds.indexOf(commentKey);
                     if (commentIndex > -1) {
                         // Replace with the new data
-                        mComments.set(commentIndex, newComment);
+                        mComentarioses.set(commentIndex, newComentarios);
 
                         // Update the RecyclerView
                         notifyItemChanged(commentIndex);
@@ -244,7 +244,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
                     if (commentIndex > -1) {
                         // Remove data from the list
                         mCommentIds.remove(commentIndex);
-                        mComments.remove(commentIndex);
+                        mComentarioses.remove(commentIndex);
 
                         // Update the RecyclerView
                         notifyItemRemoved(commentIndex);
@@ -260,7 +260,7 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
 
                     // A comment has changed position, use the key to determine if we are
                     // displaying this comment and if so move it.
-                    Comment movedComment = dataSnapshot.getValue(Comment.class);
+                    Comentarios movedComentarios = dataSnapshot.getValue(Comentarios.class);
                     String commentKey = dataSnapshot.getKey();
 
                     // ...
@@ -289,14 +289,14 @@ public class PostDetailActivity extends BaseActivity implements View.OnClickList
 
         @Override
         public void onBindViewHolder(CommentViewHolder holder, int position) {
-            Comment comment = mComments.get(position);
-            holder.authorView.setText(comment.author);
-            holder.bodyView.setText(comment.text);
+            Comentarios comentarios = mComentarioses.get(position);
+            holder.authorView.setText(comentarios.author);
+            holder.bodyView.setText(comentarios.text);
         }
 
         @Override
         public int getItemCount() {
-            return mComments.size();
+            return mComentarioses.size();
         }
 
         public void cleanupListener() {

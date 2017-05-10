@@ -11,10 +11,10 @@ import com.google.firebase.database.Query;
  * A simple {@link Fragment} subclass.
  */
 
-public class MyPostsFragment extends PostListFragment {
+public class MisPostsFragmentLista extends ListaPostFragment {
 
 
-    public MyPostsFragment() {
+    public MisPostsFragmentLista() {
         // Required empty public constructor
     }
 

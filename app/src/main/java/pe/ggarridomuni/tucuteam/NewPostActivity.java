@@ -1,7 +1,6 @@
 package pe.ggarridomuni.tucuteam;
 
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,9 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pe.ggarridomuni.tucuteam.models.Post;
-import pe.ggarridomuni.tucuteam.models.User;
+import pe.ggarridomuni.tucuteam.models.Usuarios;
 
-public class NewPostActivity extends BaseActivity {
+public class NewPostActivity extends ProgressActivity {
 
     private static final String TAG = "NewPostActivity";
     private static final String REQUIRED = "Required";
@@ -78,19 +77,19 @@ public class NewPostActivity extends BaseActivity {
                 new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        // Get user value
-                        User user = dataSnapshot.getValue(User.class);
-                        //User user= new User("geckolml","test@test.com");
+                        // Get usuarios value
+                        Usuarios usuarios = dataSnapshot.getValue(Usuarios.class);
+                        //Usuarios usuarios= new Usuarios("geckolml","test@test.com");
                         // [START_EXCLUDE]
-                        if (user == null) {
-                            // User is null, error out
-                            Log.e(TAG, "User " + userId + " is unexpectedly null");
+                        if (usuarios == null) {
+                            // Usuarios is null, error out
+                            Log.e(TAG, "Usuarios " + userId + " is unexpectedly null");
                             Toast.makeText(NewPostActivity.this,
-                                    "Error: could not fetch user.",
+                                    "Error: could not fetch usuarios.",
                                     Toast.LENGTH_SHORT).show();
                         } else {
                             // Write new post
-                            writeNewPost(userId, user.username, title, body);
+                            writeNewPost(userId, usuarios.username, title, body);
                         }
 
                         // Finish this Activity, back to the stream

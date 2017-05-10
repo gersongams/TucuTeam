@@ -8,10 +8,10 @@ import com.google.firebase.database.Query;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecentPostsFragment extends PostListFragment {
+public class RecentPostsFragmentLista extends ListaPostFragment {
 
 
-    public RecentPostsFragment() {
+    public RecentPostsFragmentLista() {
         // Required empty public constructor
     }
 

@@ -11,13 +11,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import pe.ggarridomuni.tucuteam.fragment.MyPostsFragment;
-import pe.ggarridomuni.tucuteam.fragment.MyTopPostsFragment;
-import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragment;
+import pe.ggarridomuni.tucuteam.fragment.MisPostsFragmentLista;
+import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
+import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragmentLista;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends ProgressActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -36,9 +35,9 @@ public class MainActivity extends BaseActivity {
         // setear el adapter para el fragment
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
-                    new RecentPostsFragment(),
-                    new MyPostsFragment(),
-                    new MyTopPostsFragment(),
+                    new RecentPostsFragmentLista(),
+                    new MisPostsFragmentLista(),
+                    new MisTopPostsFragmentLista(),
             };
             private final String[] mFragmentNames = new String[] {
                     getString(R.string.heading_recent),

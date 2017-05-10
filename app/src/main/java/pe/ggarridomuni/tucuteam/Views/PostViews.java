@@ -1,4 +1,4 @@
-package pe.ggarridomuni.tucuteam.viewholder;
+package pe.ggarridomuni.tucuteam.Views;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 import pe.ggarridomuni.tucuteam.R;
 import pe.ggarridomuni.tucuteam.models.Post;
 
-public class PostViewHolder extends RecyclerView.ViewHolder {
+public class PostViews extends RecyclerView.ViewHolder {
 
     public TextView titleView;
     public TextView authorView;
@@ -15,7 +15,7 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     public TextView numStarsView;
     public TextView bodyView;
 
-    public PostViewHolder(View itemView) {
+    public PostViews(View itemView) {
         super(itemView);
 
         titleView = (TextView) itemView.findViewById(R.id.post_title);
