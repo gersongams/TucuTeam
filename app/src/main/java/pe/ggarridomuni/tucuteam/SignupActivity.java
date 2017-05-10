@@ -100,8 +100,9 @@ public class SignupActivity extends AppCompatActivity {
                                     Toast.makeText(SignupActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                    finish();
+                                    //startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    //finish();
+                                    onAuthSuccess(task.getResult().getUser());
                                 }
                             }
                         });
@@ -111,36 +112,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     //Funcion agregada
-
-    private void signUp(){
-        Log.d(TAG,"signUp");
-        if(!validateForm()){
-            return;
-        }
-
-        //showProgressDialog()
-                String email=inputEmail.getText().toString();
-                String password=inputPassword.getText().toString();
-
-                auth.createUserWithEmailAndPassword(email,password)
-                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d(TAG, "createUser:oncomplete"+task.isSuccessful());
-                               // hideProgressDialog();
-
-                                if(task.isSuccessful()){
-                                    onAuthSuccess(task.getResult().getUser());
-                                }
-                                else{
-                                    Toast.makeText(SignupActivity.this,"Sign up Failed",
-                                            Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
-    }
-
-//Funcion agregada
     private void onAuthSuccess(FirebaseUser user){
         String username = usernameFromEmail(user.getEmail());
         writeNewUser(user.getUid(), username, user.getEmail());
@@ -180,15 +151,12 @@ public class SignupActivity extends AppCompatActivity {
     private void writeNewUser(String userId, String name, String email){
         User user = new User(name, email);
         mDatabase.child("users").child(userId).setValue(user);
-
-
     }
 
-// funciona agregada
+    // funciona agregada
     @Override
     public void onStart() {
         super.onStart();
-
         // Check auth on Activity start
         if (auth.getCurrentUser() != null) {
             onAuthSuccess(auth.getCurrentUser());

@@ -79,8 +79,8 @@ public class NewPostActivity extends BaseActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         // Get user value
-                        //User user = dataSnapshot.getValue(User.class);
-                        User user= new User("geckolml","test@test.com");
+                        User user = dataSnapshot.getValue(User.class);
+                        //User user= new User("geckolml","test@test.com");
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out
