@@ -87,8 +87,12 @@ public class MainActivity extends ProgressActivity {
             finish();
             return true;
         }
-        else if(i == R.id.action_setting){
+        else if(i == R.id.action_language){
             startActivity(new Intent(android.provider.Settings.ACTION_LOCALE_SETTINGS));
+            return true;
+        }
+        else if(i == R.id.action_setting){
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
         else {
