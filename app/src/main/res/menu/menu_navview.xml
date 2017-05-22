@@ -3,29 +3,14 @@
         <item
             android:id="@+id/menu_seccion_1"
             android:icon="@drawable/logo"
-            android:title="seccion1"/>
+            android:title="@string/menu_reciente"/>
         <item
             android:id="@+id/menu_seccion_2"
             android:icon="@drawable/logo"
-            android:title="seccion_2"/>
+            android:title="@string/menu_posts"/>
         <item
             android:id="@+id/menu_seccion_3"
             android:icon="@drawable/logo"
-            android:title="seccion_3"/>
+            android:title="@string/menu_top_posts"/>
     </group>
-
-    <item
-        android:id="@+id/navigation_subheader"
-        android:title="otras_opciones">
-        <menu>
-            <item
-                android:id="@+id/menu_opcion_1"
-                android:icon="@drawable/logo"
-                android:title="opcion_1"/>
-            <item
-                android:id="@+id/menu_opcion_2"
-                android:icon="@drawable/logo"
-                android:title="opcion_2"/>
-        </menu>
-    </item>
 </menu>

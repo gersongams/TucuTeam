@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">TucuTeam</string>
-
+    
+    <!--Strings Navigation View-->
+    <string name="menu_reciente">RECIENTE</string>
+    <string name="menu_posts">MIS POSTS</string>
+    <string name="menu_top_posts">MIS TOP POSTS</string>
+    
+    
     <string name="action_sign_in_short">Registrate</string>
     <string name="email">Email</string>
     <string name="minimum_password">Tu contraseña es muy corta, ingresa 6 caracteres como minimo</string>

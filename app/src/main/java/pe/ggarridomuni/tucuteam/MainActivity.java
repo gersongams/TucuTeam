@@ -37,6 +37,47 @@ public class MainActivity extends ProgressActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navView = (NavigationView)findViewById(R.id.navview);
 
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        navView = (NavigationView)findViewById(R.id.navview);
+
+        navView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                        boolean fragmentTransaction = false;
+                        Fragment fragment = null;
+
+                        switch (menuItem.getItemId()) {
+                            case R.id.menu_seccion_1:
+                                fragment = new RecentPostsFragmentLista();
+                                fragmentTransaction = true;
+                                break;
+                            case R.id.menu_seccion_2:
+                                fragment = new MisPostsFragmentLista();
+                                fragmentTransaction = true;
+                                break;
+                            case R.id.menu_seccion_3:
+                                fragment = new MisTopPostsFragmentLista();
+                                fragmentTransaction = true;
+                                break;
+
+                        }
+
+//                        if(fragmentTransaction) {
+//                            getSupportFragmentManager().beginTransaction()
+//                                    .replace(R.id.content_frame, fragment)
+//                                    .commit();
+//
+//                            menuItem.setChecked(true);
+//                            getSupportActionBar().setTitle(menuItem.getTitle());
+//                        }
+
+                        drawerLayout.closeDrawers();
+
+                        return true;
+                    }
+                });
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.app_name));
