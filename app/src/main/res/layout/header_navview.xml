@@ -15,7 +15,7 @@
         android:layout_height="@dimen/perfil_image_size"
         android:layout_marginBottom="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/perfil1"
+        android:src="@drawable/megumin"
         app:border_color="@android:color/white"
         app:border_width="1dp" />
 
@@ -24,7 +24,7 @@
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Juana Maria Perez"
+        android:text="Megumin :v"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold" />
 
@@ -34,7 +34,7 @@
         style="@style/Widget.AppCompat.Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="juanaperez01@gmail.com"
+        android:text="megumin@gmail.com"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,15 +29,23 @@ public class MainActivity extends ProgressActivity {
     private NavigationView navView;
     private DrawerLayout drawerLayout;
 
+    private ActionBar actionBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_main);
 
-        // nav view
-        drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        navView = (NavigationView)findViewById(R.id.navview);
+        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(getString(R.string.menu_reciente));
 
+        setSupportActionBar(toolbar);
+        actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        // nav view
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navView = (NavigationView)findViewById(R.id.navview);
 
@@ -50,15 +59,19 @@ public class MainActivity extends ProgressActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.menu_seccion_1:
+                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragment = new RecentPostsFragmentLista();
+
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_2:
                                 fragment = new MisPostsFragmentLista();
+                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_3:
                                 fragment = new MisTopPostsFragmentLista();
+                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragmentTransaction = true;
                                 break;
 
@@ -66,7 +79,7 @@ public class MainActivity extends ProgressActivity {
 
 //                        if(fragmentTransaction) {
 //                            getSupportFragmentManager().beginTransaction()
-//                                    .replace(R.id.content_frame, fragment)
+//                                    .replace(R.id.container, fragment)
 //                                    .commit();
 //
 //                            menuItem.setChecked(true);
@@ -79,9 +92,8 @@ public class MainActivity extends ProgressActivity {
                     }
                 });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.app_name));
-        setSupportActionBar(toolbar);
+
+
 
         // setear el adapter para el fragment
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
