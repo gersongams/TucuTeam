@@ -5,7 +5,8 @@
     <string name="menu_reciente">RECIENTE</string>
     <string name="menu_posts">MIS POSTS</string>
     <string name="menu_top_posts">MIS TOP POSTS</string>
-    
+    <string name="menu_contactos">CONTACTOS</string>
+    <string name="menu_grupos">MIS GRUPOS</string>
     
     <string name="action_sign_in_short">Registrate</string>
     <string name="email">Email</string>

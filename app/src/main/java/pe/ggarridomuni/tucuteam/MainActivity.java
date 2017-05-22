@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -40,10 +41,10 @@ public class MainActivity extends ProgressActivity {
 
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
-        if(actionBar != null){
+//        if(actionBar != null){
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+//        }
 
         // nav view
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
@@ -156,6 +157,10 @@ public class MainActivity extends ProgressActivity {
         }
         else if(i == R.id.action_setting){
             startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        else if(i == android.R.id.home){
+            drawerLayout.openDrawer(GravityCompat.START);
             return true;
         }
         else {

@@ -2,15 +2,25 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_seccion_1"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_reciente"/>
         <item
             android:id="@+id/menu_seccion_2"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_posts"/>
         <item
             android:id="@+id/menu_seccion_3"
-            android:icon="@drawable/logo"
+            android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_top_posts"/>
+        <item
+            android:id="@+id/menu_seccion4"
+            android:icon="@drawable/logo"
+            android:title="@string/menu_contactos"/>
+        <item
+            android:id="@+id/menu_seccion5"
+            android:icon="@drawable/logo"
+            android:title="@string/menu_grupos"/>
+
     </group>
+
 </menu>
