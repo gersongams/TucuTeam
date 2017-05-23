@@ -6,26 +6,9 @@
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/toooo"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="0dp">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimaryDark"
-            app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
-        android:layout_below="@+id/toooo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
