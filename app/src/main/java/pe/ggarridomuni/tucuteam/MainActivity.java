@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import com.google.firebase.auth.FirebaseAuth;
 
+import pe.ggarridomuni.tucuteam.fragment.ContactosFragment;
 import pe.ggarridomuni.tucuteam.fragment.MisPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragmentLista;
@@ -50,6 +51,7 @@ public class MainActivity extends ProgressActivity {
         drawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         navView = (NavigationView)findViewById(R.id.navview);
 
+
         navView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -60,32 +62,33 @@ public class MainActivity extends ProgressActivity {
 
                         switch (menuItem.getItemId()) {
                             case R.id.menu_seccion_1:
-                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragment = new RecentPostsFragmentLista();
-
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_2:
                                 fragment = new MisPostsFragmentLista();
-                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragmentTransaction = true;
                                 break;
                             case R.id.menu_seccion_3:
                                 fragment = new MisTopPostsFragmentLista();
-                                toolbar.setTitle(menuItem.getTitle().toString());
                                 fragmentTransaction = true;
                                 break;
+                            case R.id.menu_seccion4:
+                                fragment = new ContactosFragment();
+                                fragmentTransaction = true;
+
 
                         }
+                        toolbar.setTitle(menuItem.getTitle().toString());
 
-//                        if(fragmentTransaction) {
-//                            getSupportFragmentManager().beginTransaction()
-//                                    .replace(R.id.container, fragment)
-//                                    .commit();
-//
-//                            menuItem.setChecked(true);
-//                            getSupportActionBar().setTitle(menuItem.getTitle());
-//                        }
+                        if(fragmentTransaction) {
+                            getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.replace, fragment)
+                                    .commit();
+
+                            menuItem.setChecked(true);
+                            getSupportActionBar().setTitle(menuItem.getTitle());
+                        }
 
                         drawerLayout.closeDrawers();
 
@@ -122,10 +125,10 @@ public class MainActivity extends ProgressActivity {
             }
         };
         // setear el viewpager
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mPagerAdapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+//        mViewPager = (ViewPager) findViewById(R.id.container);
+//        mViewPager.setAdapter(mPagerAdapter);
+//        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        tabLayout.setupWithViewPager(mViewPager);
 
         // crear nuevo post
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
