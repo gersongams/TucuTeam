@@ -127,8 +127,8 @@ public class MainActivity extends ProgressActivity {
         // setear el viewpager
 //        mViewPager = (ViewPager) findViewById(R.id.container);
 //        mViewPager.setAdapter(mPagerAdapter);
-//        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-//        tabLayout.setupWithViewPager(mViewPager);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
         // crear nuevo post
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
