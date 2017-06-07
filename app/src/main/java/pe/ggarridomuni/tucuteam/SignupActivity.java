@@ -115,7 +115,7 @@ public class SignupActivity extends AppCompatActivity {
         String username = usernameFromEmail(user.getEmail());
         writeNewUser(user.getUid(), username, user.getEmail());
 
-        startActivity(new Intent(SignupActivity.this,MainActivity.class));
+        startActivity(new Intent(SignupActivity.this,NavigationDrawer.class));
         finish();
 
     }

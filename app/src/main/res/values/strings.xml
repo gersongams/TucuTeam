@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">TucuTeam</string>
-    
+
     <!--Strings Navigation View-->
     <string name="menu_reciente">RECIENTE</string>
-    <string name="menu_posts">MIS POSTS</string>
+    <string name="menu_posts">POSTS</string>
     <string name="menu_top_posts">MIS TOP POSTS</string>
     <string name="menu_contactos">CONTACTOS</string>
     <string name="menu_grupos">MIS GRUPOS</string>
     <string name="menu_descubrir">DESCUBRIR</string>
-
 
 
     <!--Strings users-->
@@ -16,7 +15,6 @@
     <string name="user_2">Jhon Salchichon</string>
     <string name="activo">Activo</string>
     <string name="desconectado">Desconectado</string>
-
 
 
     <string name="action_sign_in_short">Registrate</string>
@@ -152,5 +150,9 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
 </resources>
