@@ -36,17 +36,15 @@ public class NavigationDrawer extends AppCompatActivity
         toolbar.setTitle("Contactos");
         setSupportActionBar(toolbar);
 
+
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.main_content, new ContactosFragment());
+        fragmentTransaction.replace(R.id.replace, new ContactosFragment());
         fragmentTransaction.commit();
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setVisibility(View.GONE);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -107,95 +105,86 @@ public class NavigationDrawer extends AppCompatActivity
             return super.onOptionsItemSelected(item);
         }
     }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        boolean fragmentTransaction = false;
-        Fragment fragment = null;
         int id = item.getItemId();
+        Fragment fragment = null;
+        boolean fragmentTransaction = false;
 
-        if(id == R.id.menu_seccion_1){
-            fragment = new ContactosFragment();
-            fragmentTransaction = true;
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        ViewPager mViewPager;
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        FragmentPagerAdapter mPagerAdapter;
+        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+            private final Fragment[] mFragments = new Fragment[] {
+                    new RecentPostsFragmentLista(),
+                    new MisPostsFragmentLista(),
+                    new MisTopPostsFragmentLista(),
+            };
+            private final String[] mFragmentNames = new String[] {
+                    getString(R.string.nav_reciente),
+                    getString(R.string.nav_posts),
+                    getString(R.string.nav_top_posts)
+            };
+            @Override
+            public Fragment getItem(int position) {
+                return mFragments[position];
+            }
+            @Override
+            public int getCount() {
+                return mFragments.length;
+            }
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return mFragmentNames[position];
+            }
+        };
+////     setear el viewpager
+        if(mViewPager != null){
+            mViewPager.setAdapter(mPagerAdapter);
+            tabLayout.setVisibility(View.GONE);
+            mViewPager.setVisibility(View.GONE);
+            tabLayout.setupWithViewPager(mViewPager);
         }
-        else if (id == R.id.nav_camera) {
-            // Handle the camera action
-            fragment = new RecentPostsFragmentLista();
-            fragmentTransaction = true;
+        switch (id){
 
-        } else if (id == R.id.nav_gallery) {
-            fragment = new MisPostsFragmentLista();
-            fragmentTransaction = true;
-
-        } else if (id == R.id.nav_slideshow) {
-            fragment = new MisTopPostsFragmentLista();
-            fragmentTransaction = true;
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            case R.id.nav_profile:
+                fragmentTransaction = true;
+                fragment = new ContactosFragment();
+                break;
+            case R.id.nav_contactos:
+                fragmentTransaction = true;
+                fragment = new ContactosFragment();
+                break;
+            case R.id.nav_posts:
+                tabLayout.setVisibility(View.VISIBLE);
+                mViewPager.setVisibility(View.VISIBLE);
+                fragmentTransaction = true;
+                fragment = new Posts();
+                break;
+            case R.id.nav_groups:
+                fragmentTransaction = true;
+                fragment = new ContactosFragment();
+                break;
+            case R.id.nav_share:
+                break;
+            case R.id.nav_send:
+                break;
 
         }
 
-//        toolbar.setTitle(menuItem.getTitle().toString());
-
-        if(fragmentTransaction) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.main_content, fragment)
-                    .commit();
-
+        if(fragmentTransaction){
+            getSupportFragmentManager().beginTransaction().replace(R.id.replace,fragment).commit();
             item.setChecked(true);
             getSupportActionBar().setTitle(item.getTitle());
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-//    private FragmentPagerAdapter mPagerAdapter;
-//    private ViewPager mViewPager;
-//
-//    // setear el adapter para el fragment
-//    mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
-//        private final Fragment[] mFragments = new Fragment[] {
-//                new RecentPostsFragmentLista(),
-//                new MisPostsFragmentLista(),
-//                new MisTopPostsFragmentLista(),
-//        };
-//        private final String[] mFragmentNames = new String[] {
-//                getString(R.string.heading_recent),
-//                getString(R.string.heading_my_posts),
-//                getString(R.string.heading_my_top_posts)
-//        };
-//        @Override
-//        public Fragment getItem(int position) {
-//            return mFragments[position];
-//        }
-//        @Override
-//        public int getCount() {
-//            return mFragments.length;
-//        }
-//        @Override
-//        public CharSequence getPageTitle(int position) {
-//            return mFragmentNames[position];
-//        }
-//    };
-//    // setear el viewpager
-////        mViewPager = (ViewPager) findViewById(R.id.container);
-////        mViewPager.setAdapter(mPagerAdapter);
-//    TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-//        tabLayout.setupWithViewPager(mViewPager);
-//
-//    // crear nuevo post
-//    findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            startActivity(new Intent(MainActivity.this, NewPostActivity.class));
-//        }
-//    });
+
 }

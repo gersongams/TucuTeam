@@ -2,12 +2,14 @@
     <string name="app_name">TucuTeam</string>
 
     <!--Strings Navigation View-->
-    <string name="menu_reciente">RECIENTE</string>
-    <string name="menu_posts">POSTS</string>
-    <string name="menu_top_posts">MIS TOP POSTS</string>
-    <string name="menu_contactos">CONTACTOS</string>
-    <string name="menu_grupos">MIS GRUPOS</string>
-    <string name="menu_descubrir">DESCUBRIR</string>
+    <string name="nav_reciente">Reciente</string>
+    <string name="nav_posts">Posts</string>
+    <string name="nav_top_posts">Mis top posts</string>
+    <string name="nav_contacts">Contactos</string>
+    <string name="nav_grupos">Mis Grupos</string>
+    <string name="nav_descubrir">Descubrir</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nav_groups">Grupos</string>
 
 
     <!--Strings users-->
