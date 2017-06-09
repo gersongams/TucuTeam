@@ -2,6 +2,7 @@ package pe.ggarridomuni.tucuteam;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -38,6 +39,8 @@ public class NavigationDrawer extends AppCompatActivity
 
 
 
+
+
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.replace, new ContactosFragment());
         fragmentTransaction.commit();
@@ -62,6 +65,8 @@ public class NavigationDrawer extends AppCompatActivity
                 startActivity(new Intent(NavigationDrawer.this, NewPostActivity.class));
             }
         });
+
+
     }
 
     @Override
@@ -117,6 +122,8 @@ public class NavigationDrawer extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         ViewPager mViewPager;
         mViewPager = (ViewPager) findViewById(R.id.container);
+        FloatingActionButton floatButtom = (FloatingActionButton) findViewById(R.id.fab_new_post);
+
         FragmentPagerAdapter mPagerAdapter;
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
             private final Fragment[] mFragments = new Fragment[] {
@@ -154,20 +161,24 @@ public class NavigationDrawer extends AppCompatActivity
             case R.id.nav_profile:
                 fragmentTransaction = true;
                 fragment = new ContactosFragment();
+                floatButtom.setVisibility(View.GONE);
                 break;
             case R.id.nav_contactos:
                 fragmentTransaction = true;
                 fragment = new ContactosFragment();
+                floatButtom.setVisibility(View.GONE);
                 break;
             case R.id.nav_posts:
                 tabLayout.setVisibility(View.VISIBLE);
                 mViewPager.setVisibility(View.VISIBLE);
                 fragmentTransaction = true;
                 fragment = new Posts();
+                floatButtom.setVisibility(View.VISIBLE);
                 break;
             case R.id.nav_groups:
                 fragmentTransaction = true;
                 fragment = new ContactosFragment();
+                floatButtom.setVisibility(View.GONE);
                 break;
             case R.id.nav_share:
                 break;
