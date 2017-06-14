@@ -139,7 +139,7 @@
         <item>3</item>
     </string-array>
 
-    <string-array name="multi_select_list_preference_default_value" />
+    <string-array name="multi_select_list_preference_default_value"/>
 
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
@@ -156,5 +156,16 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="Add_New">Add New</string>
+    <string name="edit">Edit Post</string>
+    <string name="delete">Delete Post</string>
+    <string name="save">Save Post</string>
+
+
+    <string name="deletePerson">Confirm post deletion.</string>
+    <string name="yes">Confirm</string>
+    <string name="no">Cancel</string>
+    <string name="title_activity_activity_edit">CreateOrEditActivity</string>
 
 </resources>

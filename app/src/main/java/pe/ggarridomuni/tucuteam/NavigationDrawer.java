@@ -20,7 +20,6 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-import pe.ggarridomuni.tucuteam.fragment.ContactosFragment;
 import pe.ggarridomuni.tucuteam.fragment.MisPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.Posts;
@@ -37,12 +36,8 @@ public class NavigationDrawer extends AppCompatActivity
         toolbar.setTitle("Contactos");
         setSupportActionBar(toolbar);
 
-
-
-
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.replace, new ContactosFragment());
+
         fragmentTransaction.commit();
 
 
@@ -123,6 +118,7 @@ public class NavigationDrawer extends AppCompatActivity
         ViewPager mViewPager;
         mViewPager = (ViewPager) findViewById(R.id.container);
         FloatingActionButton floatButtom = (FloatingActionButton) findViewById(R.id.fab_new_post);
+        Intent a = new Intent(this, ContactActivity.class);
 
         FragmentPagerAdapter mPagerAdapter;
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -156,17 +152,20 @@ public class NavigationDrawer extends AppCompatActivity
             mViewPager.setVisibility(View.GONE);
             tabLayout.setupWithViewPager(mViewPager);
         }
+
+
+
         switch (id){
 
             case R.id.nav_profile:
                 fragmentTransaction = true;
-                fragment = new ContactosFragment();
                 floatButtom.setVisibility(View.GONE);
+                startActivity(a);
                 break;
             case R.id.nav_contactos:
                 fragmentTransaction = true;
-                fragment = new ContactosFragment();
                 floatButtom.setVisibility(View.GONE);
+                startActivity(a);
                 break;
             case R.id.nav_posts:
                 tabLayout.setVisibility(View.VISIBLE);
@@ -177,8 +176,8 @@ public class NavigationDrawer extends AppCompatActivity
                 break;
             case R.id.nav_groups:
                 fragmentTransaction = true;
-                fragment = new ContactosFragment();
                 floatButtom.setVisibility(View.GONE);
+                startActivity(a);
                 break;
             case R.id.nav_share:
                 break;
