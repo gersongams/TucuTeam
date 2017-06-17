@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import pe.ggarridomuni.tucuteam.fragment.ContactosFragment;
 import pe.ggarridomuni.tucuteam.fragment.MisPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
+import pe.ggarridomuni.tucuteam.fragment.PerfilFragment;
 import pe.ggarridomuni.tucuteam.fragment.Posts;
 import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragmentLista;
 
@@ -34,10 +35,9 @@ public class NavigationDrawer extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Bitzer");
+
+        toolbar.setTitle("Contactos");
         setSupportActionBar(toolbar);
-
-
 
 
 
@@ -160,7 +160,7 @@ public class NavigationDrawer extends AppCompatActivity
 
             case R.id.nav_profile:
                 fragmentTransaction = true;
-                fragment = new ContactosFragment();
+                fragment = new PerfilFragment();
                 floatButtom.setVisibility(View.GONE);
                 break;
             case R.id.nav_contactos:
@@ -169,6 +169,7 @@ public class NavigationDrawer extends AppCompatActivity
                 floatButtom.setVisibility(View.GONE);
                 break;
             case R.id.nav_posts:
+
                 tabLayout.setVisibility(View.VISIBLE);
                 mViewPager.setVisibility(View.VISIBLE);
                 fragmentTransaction = true;
