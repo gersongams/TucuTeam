@@ -25,6 +25,7 @@
     <string name="auth_failed">Error de autenticación, comprueba tu correo electrónico y contraseña o regístrate</string>
     <string name="change_email">Cambiar Email</string>
     <string name="signup_title">Registro</string>
+    <string name="perfil">Configuración Perfil</string>
     <string name="change_password">Cambiar Contraseña</string>
     <string name="send_password_reset_email">Enviar email para reestablecer contraseña</string>
     <string name="remove_user">Eliminar usuario</string>

@@ -34,7 +34,7 @@ public class NavigationDrawer extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Contactos");
+        toolbar.setTitle("Bitzer");
         setSupportActionBar(toolbar);
 
 
@@ -179,6 +179,11 @@ public class NavigationDrawer extends AppCompatActivity
                 fragmentTransaction = true;
                 fragment = new ContactosFragment();
                 floatButtom.setVisibility(View.GONE);
+                break;
+            case R.id.nav_manage:
+                Intent i = new Intent(this, ConfigurationPerfilActivity.class);
+                startActivity(i);
+                finish();
                 break;
             case R.id.nav_share:
                 break;
