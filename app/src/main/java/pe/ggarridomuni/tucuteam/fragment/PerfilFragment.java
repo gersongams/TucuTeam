@@ -27,7 +27,6 @@ import pe.ggarridomuni.tucuteam.models.Usuarios;
  */
 
 public class PerfilFragment extends Fragment {
-    FirebaseAuth auth;
     private DatabaseReference mDatabase;
 
     public PerfilFragment() {

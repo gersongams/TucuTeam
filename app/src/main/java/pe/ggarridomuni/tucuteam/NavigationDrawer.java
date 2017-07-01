@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,8 +19,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import pe.ggarridomuni.tucuteam.Data.Data;
 import pe.ggarridomuni.tucuteam.Data.Profile;
@@ -28,6 +36,7 @@ import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.PerfilFragment;
 import pe.ggarridomuni.tucuteam.fragment.Posts;
 import pe.ggarridomuni.tucuteam.fragment.RecentPostsFragmentLista;
+import pe.ggarridomuni.tucuteam.models.Usuarios;
 
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -38,15 +47,14 @@ public class NavigationDrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-            Data data = new Data(this);
-            data.showData();
+        Data data = new Data(this);
+        data.showData();
 
-
-        toolbar.setTitle("Contactos");
+        toolbar.setTitle("Perfil");
         setSupportActionBar(toolbar);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.replace, new ContactosFragment());
+        fragmentTransaction.replace(R.id.replace, new PerfilFragment());
         fragmentTransaction.commit();
 
 

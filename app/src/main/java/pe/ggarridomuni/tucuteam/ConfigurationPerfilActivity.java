@@ -12,7 +12,17 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
+
 import pe.ggarridomuni.tucuteam.Data.Data;
+import pe.ggarridomuni.tucuteam.models.Usuarios;
 
 /**
  * Created by bitzer on 17/06/17.
@@ -20,6 +30,7 @@ import pe.ggarridomuni.tucuteam.Data.Data;
 
 public class ConfigurationPerfilActivity extends AppCompatActivity{
 
+    private DatabaseReference mDatabase;
     private static final String TAG="ConfigurationPerfilActivity";
     private EditText editUserName, editEmail, editDrescription;
     private Button btnSignUp;
@@ -47,9 +58,9 @@ public class ConfigurationPerfilActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                String userName = editUserName.getText().toString().trim();
-                String email = editEmail.getText().toString().trim();
-                String description = editDrescription.getText().toString().trim();
+                final String userName = editUserName.getText().toString().trim();
+                final String email = editEmail.getText().toString().trim();
+                final String description = editDrescription.getText().toString().trim();
                 if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(getApplicationContext(), "Enter Universidad!", Toast.LENGTH_SHORT).show();
                     return;
@@ -66,6 +77,19 @@ public class ConfigurationPerfilActivity extends AppCompatActivity{
                 }
                 progressBar.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
+
+                mDatabase = FirebaseDatabase.getInstance().getReference("users");
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                Usuarios user = new Usuarios(userName,email,description);
+                DatabaseReference userNameRef = mDatabase.child(auth.getCurrentUser().getUid());
+
+                HashMap<String,Object> update = new HashMap<>();
+                update.put("username",userName);
+                update.put("email",email);
+                update.put("description",description);
+
+                userNameRef.setValue(update);
                 //create user
                 dm.insert(userName,email,description);
                 dm.showData();
