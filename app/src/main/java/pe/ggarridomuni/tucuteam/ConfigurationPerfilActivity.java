@@ -21,7 +21,7 @@ import pe.ggarridomuni.tucuteam.Data.Data;
 public class ConfigurationPerfilActivity extends AppCompatActivity{
 
     private static final String TAG="ConfigurationPerfilActivity";
-    private EditText inputUniversidad, inputCarrera, inputInteres;
+    private EditText editUserName, editEmail, editDrescription;
     private Button btnSignUp;
     private ProgressBar progressBar;
 
@@ -33,9 +33,11 @@ public class ConfigurationPerfilActivity extends AppCompatActivity{
         setContentView(R.layout.activity_editar_perfil);
 
         dm = new Data(this);
-        inputUniversidad = (EditText) findViewById(R.id.universidad);
-        inputCarrera = (EditText) findViewById(R.id.carrera);
-        inputInteres = (EditText) findViewById(R.id.interes);
+
+
+        editUserName = (EditText) findViewById(R.id.editUserNAme);
+        editEmail = (EditText) findViewById(R.id.editEmail);
+        editDrescription = (EditText) findViewById(R.id.editDescription);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnSignUp = (Button) findViewById(R.id.sign_up);
 
@@ -45,27 +47,28 @@ public class ConfigurationPerfilActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
-                String universidad = inputUniversidad.getText().toString().trim();
-                String carrera = inputCarrera.getText().toString().trim();
-                String interes = inputInteres.getText().toString().trim();
-                if (TextUtils.isEmpty(universidad)) {
+                String userName = editUserName.getText().toString().trim();
+                String email = editEmail.getText().toString().trim();
+                String description = editDrescription.getText().toString().trim();
+                if (TextUtils.isEmpty(userName)) {
                     Toast.makeText(getApplicationContext(), "Enter Universidad!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(carrera)) {
+                if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter carrera!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(interes)) {
+                if (TextUtils.isEmpty(description)) {
                     Toast.makeText(getApplicationContext(), "Enter interes!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 progressBar.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
                 //create user
-                dm.insert(universidad,carrera,interes);
+                dm.insert(userName,email,description);
+                dm.showData();
                 startActivity(new Intent(ConfigurationPerfilActivity.this,NavigationDrawer.class));
                 finish();
             }

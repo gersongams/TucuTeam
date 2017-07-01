@@ -35,11 +35,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/universidad"
+                android:id="@+id/editUserNAme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="universidad"
-                android:inputType="textEmailAddress"
+                android:hint="Nombre de Usuario"
+                android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@android:color/white" />
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/carrera"
+                android:id="@+id/editEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="carrera"
@@ -64,11 +64,11 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/interes"
+                android:id="@+id/editDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="tema interes"
-                android:inputType="textEmailAddress"
+                android:hint="Descripcion"
+                android:inputType="textMultiLine"
                 android:maxLines="1"
                 android:textColor="@android:color/white" />
 
@@ -97,5 +97,12 @@
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
         android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" />
 
 </android.support.design.widget.CoordinatorLayout>

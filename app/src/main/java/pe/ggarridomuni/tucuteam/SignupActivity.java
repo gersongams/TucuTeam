@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import pe.ggarridomuni.tucuteam.models.Usuarios;
+import pe.ggarridomuni.tucuteam.Data.Profile;
 
 public class SignupActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;//agregado
@@ -31,11 +32,12 @@ public class SignupActivity extends AppCompatActivity {
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
 
-
+    Profile profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
 
         mDatabase = FirebaseDatabase.getInstance().getReference();//agregado
         //Get Firebase auth instance
@@ -102,6 +104,7 @@ public class SignupActivity extends AppCompatActivity {
                                     //startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     //finish();
                                     onAuthSuccess(task.getResult().getUser());
+
                                 }
                             }
                         });
@@ -113,7 +116,7 @@ public class SignupActivity extends AppCompatActivity {
     //Funcion agregada
     private void onAuthSuccess(FirebaseUser user){
         String username = usernameFromEmail(user.getEmail());
-        writeNewUser(user.getUid(), username, user.getEmail());
+        writeNewUser(user.getUid(), username, user.getEmail(),"Write your description");
 
         startActivity(new Intent(SignupActivity.this,NavigationDrawer.class));
         finish();
@@ -147,8 +150,8 @@ public class SignupActivity extends AppCompatActivity {
     // Funcion para escribir Usuario en la base de datos con el id de usuario
     // dentro de users
     //Funcion agregada WriteUser
-    private void writeNewUser(String userId, String name, String email){
-        Usuarios usuarios = new Usuarios(name, email);
+    private void writeNewUser(String userId, String name, String email, String description){
+        Usuarios usuarios = new Usuarios(name, email, description);
         mDatabase.child("users").child(userId).setValue(usuarios);
     }
 

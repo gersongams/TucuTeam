@@ -7,12 +7,12 @@ public class Usuarios {
 
     public String username;
     public String email;
+    public String description;
 
-    public Usuarios(){}
-
-    public Usuarios(String username, String email) {
+    public Usuarios(String username, String email, String description) {
         this.username = username;
         this.email = email;
+        this.description = description;
     }
 
     public String getUsername() {
@@ -22,5 +22,7 @@ public class Usuarios {
     public String getEmail() {
         return email;
     }
+
+    public String getDescription() { return description;}
 
 }

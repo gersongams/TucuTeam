@@ -50,7 +50,12 @@
             android:name=".ConfigurationPerfilActivity"
             android:label="@string/title_activity_reset_password"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+            <intent-filter>
+                <category android:name="android.intent.category.OPENABLE" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ResetPasswordActivity"
             android:label="@string/title_activity_reset_password"

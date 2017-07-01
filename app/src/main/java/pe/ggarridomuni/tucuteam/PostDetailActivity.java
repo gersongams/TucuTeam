@@ -32,7 +32,6 @@ public class PostDetailActivity extends ProgressActivity implements View.OnClick
     private static final String TAG = "PostDetailActivity";
 
     public static final String EXTRA_POST_KEY = "post_key";
-
     private DatabaseReference mPostReference;
     private DatabaseReference mCommentsReference;
     private ValueEventListener mPostListener;

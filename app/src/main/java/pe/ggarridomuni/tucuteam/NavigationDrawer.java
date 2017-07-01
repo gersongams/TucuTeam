@@ -20,6 +20,8 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import pe.ggarridomuni.tucuteam.Data.Data;
+import pe.ggarridomuni.tucuteam.Data.Profile;
 import pe.ggarridomuni.tucuteam.fragment.ContactosFragment;
 import pe.ggarridomuni.tucuteam.fragment.MisPostsFragmentLista;
 import pe.ggarridomuni.tucuteam.fragment.MisTopPostsFragmentLista;
@@ -36,10 +38,12 @@ public class NavigationDrawer extends AppCompatActivity
         setContentView(R.layout.activity_navigation_drawer2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+            Data data = new Data(this);
+            data.showData();
+
+
         toolbar.setTitle("Contactos");
         setSupportActionBar(toolbar);
-
-
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.replace, new ContactosFragment());

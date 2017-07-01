@@ -13,12 +13,12 @@ import android.util.Log;
 public class Data {
     private SQLiteDatabase db;
     public static final String TABLE_ROW_ID = "_id";
-    public static final String TABLE_ROW_NAME = "universidad";
+    public static final String TABLE_ROW_UNIVERSITY = "universidad";
     public static final String TABLE_ROW_CARRERA = "carrera";
     public static final String TABLE_ROW_INTERES = "interes";
-    private static final String DB_NAME = "perfil";
+    private static final String DB_NAME = "tucuteam";
     private static final int DB_VERSION = 1;
-    private static final String TABLE_N_AND_A = "names_perfil";
+    private static final String TABLE_PROFILE = "profile";
 
     public Data(Context context) {
         // Create an instance of our internal
@@ -30,8 +30,8 @@ public class Data {
     // Insert a record
     public void insert(String universidad, String carrera, String interes){
         // Add all the details to the table
-        String query = "INSERT INTO " + TABLE_N_AND_A + " (" +
-                TABLE_ROW_NAME + ", " +
+        String query = "INSERT INTO " + TABLE_PROFILE + " (" +
+                TABLE_ROW_UNIVERSITY + ", " +
                 TABLE_ROW_CARRERA + "," +
                 TABLE_ROW_INTERES + ") " +
                 "VALUES (" +
@@ -41,8 +41,19 @@ public class Data {
     }
     public Cursor selectAll() {
         Cursor c = db.rawQuery("SELECT *" +" from " +
-                TABLE_N_AND_A, null);
+                TABLE_PROFILE, null);
         return c;
+    }
+
+    public void showData(){
+        Cursor query = db.rawQuery("SELECT * FROM " + TABLE_PROFILE,null);
+
+        while(query.moveToNext()){
+            int rows = query.getCount();
+            String  rowUniversity = query.getString(1);
+            Log.i("Universidad : " , rowUniversity);
+            Log.i("Rows : ", Integer.toString(rows));
+        }
     }
 
 
@@ -56,10 +67,10 @@ public class Data {
         public void onCreate(SQLiteDatabase db) {
 // Create a table for photos and all their details
             String newTableQueryString = "create table "
-                    + TABLE_N_AND_A + " ("
+                    + TABLE_PROFILE + " ("
                     + TABLE_ROW_ID
                     + " integer primary key autoincrement not null,"
-                    + TABLE_ROW_NAME
+                    + TABLE_ROW_UNIVERSITY
                     + " text not null,"
                     + TABLE_ROW_CARRERA
                     + " text not null,"
